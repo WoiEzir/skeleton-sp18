@@ -256,5 +256,17 @@ public class IntList {
         out.format(")");
         return out.toString();
     }
+
+    public IntList reverse() {
+        IntList prev = null;
+        IntList current = this;
+        while (current != null) {
+            IntList next = current.rest;
+            current.rest = prev;
+            prev = current;
+            current = next;
+        }
+        return prev;
+    }
 }
 
